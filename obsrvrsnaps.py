@@ -53,4 +53,5 @@ def save_snaps(width=0, height=0, name="snapshot", folder=".", raspi=False):
     
     cap.release()
     cv2.destroyAllWindows()
-        
+
+
