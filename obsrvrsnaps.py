@@ -71,7 +71,6 @@ def generate_matrix(nRows=9, nCols=6, dimension=23, workingFolder=".", imageType
           "At the end the end the following files are created:" \
           "  - camera_distortion.txt" \
           "  - camera_matrix.txt \n\n")
-    
     # Find the images files
     filename    = workingFolder + "/*." + imageType
     images      = glob.glob(filename)
@@ -95,7 +94,6 @@ def generate_matrix(nRows=9, nCols=6, dimension=23, workingFolder=".", imageType
             if ret == True:
                 print("Pattern found! Press ESC to skip or ENTER to accept")
                 #--- Sometimes, Harris cornes fails with crappy pictures, so
-                time.sleep(0.2)
                 corners2 = cv2.cornerSubPix(gray,corners,(11,11),(-1,-1),criteria)
                 # Draw and display the corners
                 cv2.drawChessboardCorners(img, (nCols,nRows), corners2,ret)
