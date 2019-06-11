@@ -13,5 +13,6 @@ Take about 20 snapshots, then press `q`""")
 	w, h = resolution
 	o_snaps.save_snaps(width=w, height=h, folder="./snaps/")
 	input("Snapshots saved. \nPress any key to generate transform matrix...")
+	o_snaps.generate_matrix(workingFolder="./snaps/")
 	
 	
