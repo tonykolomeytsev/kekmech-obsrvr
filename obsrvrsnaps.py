@@ -13,8 +13,9 @@ def save_snaps(width=0, height=0, name="snapshot", folder=".", raspi=False):
     cv2.CAP_PROP_FRAME_WIDTH = 3
     cv2.CAP_PROP_FRAME_HEIGHT = 4
     if raspi:
-        os.system("sudo modprobe bcm2835-v412")
+        os.system("sudo modprobe bcm2835-v4l2")
     cap = cv2.VideoCapture(0)
+    time.sleep(2)
 
     if width > 0 and height > 0:
         print("Setting the custom width and height: {}x{}".format(width,height))
@@ -38,7 +39,7 @@ def save_snaps(width=0, height=0, name="snapshot", folder=".", raspi=False):
     fileName = "{}/{}_{}_{}_".format(folder, name, int(w), int(h))
     print("Press Whitespace to make shapshot, press `q` when complete.")
     while True:
-        time.sleep(0.2)
+        time.sleep(0.05)
         ret, frame = cap.read()
         cv2.imshow('camera', frame)
 
