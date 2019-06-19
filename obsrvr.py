@@ -112,7 +112,7 @@ if __name__=="__main__":
 				#print marker's attitude respect to camera frame
 				str_att = "eul: roll=%4.0f   pitch=%4.0f   yaw=%4.0f"%(math.degrees(roll_marker),math.degrees(pitch_marker),math.degrees(yaw_marker))
 				cv2.putText(frame, str_att, (0, 150), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
-				print("{};{};{}").format(i,rvec,tvec,R_ct,R_flip,roll_marker,pitch_marker,yaw_marker)
+				print("{};{};{};{};{};{};{}".format(ids[i],rvec,tvec,np.array(R_ct).reshape(-1),roll_marker,pitch_marker,yaw_marker))
 				
 				#get position and attitude of the camera respect to the marker
 				#pos_camera = -R_tc*np.transpose(np.matrix(tvec))
