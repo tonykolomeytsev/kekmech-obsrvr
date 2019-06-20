@@ -16,7 +16,14 @@ Take about 20 snapshots, then press `q`""")
 	obsrvrsnaps.save_snaps(width=w, height=h, folder="./snaps/",raspi=True)
 	input("Snapshots saved. \nPress any key to generate transform matrix...")
 	obsrvrsnaps.generate_matrix(workingFolder="./snaps/")
-	
+
+def generate_marker(marker_code, aruco_dict=aruco.DICT_5X5_250, size=200, filename="img.png"):
+	ardict = aruco.getPredefinedDictionary(aruco_dict)
+	img = aruco.drawMarker(ardict, marker_code, size)
+	print(cv2.imwrite(filename, img))
+
+
+
 if __name__=="__main__":
 	# define tag
 	id_to_kind = 72
